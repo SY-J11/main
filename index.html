@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f3f5f9">
-<title>STOCK HUB</title>
+<title>MARKET INSIGHT</title>
 <link rel="apple-touch-icon" href="./Stock_main.png">
 <style>
 *{box-sizing:border-box}
@@ -25,6 +25,7 @@ main{padding:10px}
 .intro h2{font-size:17px;margin:0 0 4px}
 .intro p{font-size:10px;color:var(--muted);margin:0}
 .group{margin:14px 4px 7px;font-size:10px;font-weight:700;color:var(--muted)}
+.group .ko{font-size:12px;margin-right:3px}
 .list{display:grid;gap:7px}
 a.link{display:flex;align-items:center;gap:12px;padding:14px;background:var(--card);border:1px solid var(--line);border-radius:13px;box-shadow:0 2px 10px #26364f08;color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
 a.link:active{opacity:.65}
@@ -42,21 +43,21 @@ footer{text-align:center;color:var(--muted);font-size:8px;padding:18px 3px}
 <body>
 <div class="app">
 <header>
-  <div class="brand"><i></i><div><b>주식 대시보드</b><small>STOCK HUB</small></div></div>
+  <div class="brand"><i></i><div><b>마켓 인사이트</b><small>MARKET INSIGHT</small></div></div>
   <div class="tools"><button id="theme" type="button" aria-label="테마 전환">◐</button></div>
 </header>
 <main>
-  <div class="group">증시 분석</div>
-  <nav class="list two" aria-label="증시 분석 페이지">
-    <a class="link" href="https://sy-j11.github.io/c/"><span class="ico">🌅</span><span class="txt"><b>당일 개장 분석</b><small>MARKET OPEN</small></span><span class="go">›</span></a>
-    <a class="link" href="https://sy-j11.github.io/t/"><span class="ico">📊</span><span class="txt"><b>수급 분석</b><small>MARKET FLOW</small></span><span class="go">›</span></a>
-    <a class="link" href="https://sy-j11.github.io/st/"><span class="ico">🔥</span><span class="txt"><b>당일 거래 종목 분석</b><small>TODAY'S MOVERS</small></span><span class="go">›</span></a>
-    <a class="link" href="https://sy-j11.github.io/s"><span class="ico">🔎</span><span class="txt"><b>종목 인사이트</b><small>STOCK INSIGHT PRO</small></span><span class="go">›</span></a>
+  <div class="group"><span class="ko">주식시장 분석</span> STOCK MARKET ANALYSIS</div>
+  <nav class="list two" aria-label="주식시장 분석 페이지">
+    <a class="link" href="https://sy-j11.github.io/c/"><span class="ico">🌅</span><span class="txt"><b>국내 증시 개장 전 분석</b><small>PRE-MARKET ANALYSIS</small></span><span class="go">›</span></a>
+    <a class="link" href="https://sy-j11.github.io/t/"><span class="ico">📊</span><span class="txt"><b>시장 수급 분석</b><small>MARKET FLOW ANALYSIS</small></span><span class="go">›</span></a>
+    <a class="link" href="https://sy-j11.github.io/st/"><span class="ico">🔥</span><span class="txt"><b>오늘의 주요 거래 종목</b><small>TODAY'S MOVERS</small></span><span class="go">›</span></a>
+    <a class="link" href="https://sy-j11.github.io/s"><span class="ico">🔎</span><span class="txt"><b>종목 인사이트</b><small>STOCK INSIGHT</small></span><span class="go">›</span></a>
   </nav>
 
   <hr>
-  <div class="group">거시경제</div>
-  <nav class="list" aria-label="거시경제 페이지">
+  <div class="group"><span class="ko">매크로 경제 분석</span> MACRO ANALYSIS</div>
+  <nav class="list" aria-label="매크로 경제 분석 페이지">
     <a class="link" href="https://sy-j11.github.io/f/"><span class="ico">🏛️</span><span class="txt"><b>FOMC</b><small>FEDERAL RESERVE</small></span><span class="go">›</span></a>
   </nav>
 </main>
