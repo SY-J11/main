@@ -40,8 +40,56 @@ a.link:focus-visible{outline:2px solid var(--green);outline-offset:2px}
 .trash-actions .restore-item{background:var(--accent);border-color:var(--accent);color:#fff}
 .trash-actions .permanent-delete{color:#d64b4b}
 .trash-meta{font-size:9px;color:var(--muted);margin-top:5px;letter-spacing:.1px}
-#customTrash{margin-top:8px}
-#trashMenu{display:grid;gap:7px}
+#customTrash{margin-top:12px}
+#trashMenu{display:grid;gap:10px}
+#trashMenu .custom-item{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:10px;
+  padding:11px;
+  border-radius:14px;
+}
+#trashMenu .link{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  min-width:0;
+  padding:2px;
+}
+#trashMenu .ico{width:42px;height:42px;flex:none}
+#trashMenu .txt{min-width:0;overflow-wrap:anywhere}
+#trashMenu .txt b{line-height:1.4}
+#trashMenu .txt small{line-height:1.4;overflow-wrap:anywhere}
+.trash-meta{
+  display:inline-flex;
+  align-items:center;
+  margin-top:7px;
+  padding:4px 8px;
+  border-radius:6px;
+  background:var(--tool);
+  color:var(--muted);
+  font-size:9px;
+  letter-spacing:0;
+}
+#trashMenu .trash-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin:0;
+}
+#trashMenu .trash-actions button{
+  min-width:0;
+  min-height:38px;
+  padding:9px 8px;
+  border-radius:9px;
+  font-size:11px;
+}
+#trashMenu .trash-actions .restore-item{background:var(--accent);color:#fff}
+#trashMenu .trash-actions .permanent-delete{background:var(--tool);color:#d64b4b}
+@media(min-width:600px){
+  #trashMenu .custom-item{grid-template-columns:minmax(0,1fr) 210px;align-items:center}
+  #trashMenu .trash-actions{grid-template-columns:1fr}
+}
 .custom-add{margin-top:7px;width:100%;display:flex;align-items:center;justify-content:center;gap:8px;padding:13px;background:var(--card);border:1px dashed var(--muted);border-radius:13px;color:var(--text);font:inherit;font-size:12px;font-weight:700;cursor:pointer}
 .custom-add:active{opacity:.65}
 .modal-backdrop{position:fixed;inset:0;background:#10182799;display:none;align-items:center;justify-content:center;padding:18px;z-index:20}
@@ -91,8 +139,8 @@ footer{text-align:center;color:var(--muted);font-size:8px;padding:18px 3px}
   <hr>
   <div class="group"><span class="ko">매크로 경제 분석</span> MACRO ANALYSIS</div>
   <nav class="list" aria-label="매크로 경제 분석 페이지">
-    <a class="link" href="https://sy-j11.github.io/fr/"><span class="ico">🏛️</span><span class="txt"><b>연방준비제도 모니터</b><small>FEDERAL RESERVE MONITER</small></span><span class="go">›</span></a>
-    <a class="link" href="https://sy-j11.github.io/f/"><span class="ico">🏦</span><span class="txt"><b>미국 경제지표 분석</b><small>US ECONOMIC INDICATORS ANALYSIS</small></span><span class="go">›</span></a>
+    <a class="link" href="https://sy-j11.github.io/fr/"><span class="ico">🏛️</span><span class="txt"><b>연방준비제도 인물 모니터</b><small>FEDERAL MONITER</small></span><span class="go">›</span></a>
+    <a class="link" href="https://sy-j11.github.io/f/"><span class="ico">📉</span><span class="txt"><b>미국 경제지표 분석</b><small>US ECONOMIC INDICATORS ANALYSIS</small></span><span class="go">›</span></a>
   </nav>
 
   <hr>
