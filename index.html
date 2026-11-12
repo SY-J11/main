@@ -165,7 +165,7 @@ footer{text-align:center;color:var(--muted);font-size:8px;padding:18px 3px}
   <div class="group"><span class="ko">맞춤 메뉴</span> CUSTOMIZED MENU</div>
   <nav class="list" id="customMenu" aria-label="맞춤 메뉴"></nav>
   <button class="custom-add" id="addCustomMenu" type="button"><span>＋</span> 추가하기</button>
-  <button class="custom-add" id="toggleTrash" type="button" aria-expanded="false"><span>♻️</span> 삭제한 메뉴 복구</button>
+  <button class="custom-add" id="toggleTrash" type="button" aria-expanded="false"><span>♻️</span> 삭제한 메뉴 복원</button>
   <button id="resetCustomMenu" type="button"><span>↺</span> 맞춤 메뉴 전체 초기화</button>
   <section id="customTrash" hidden aria-label="삭제한 메뉴 목록">
     <div class="group">삭제한 메뉴 <span id="trashCount"></span></div>
@@ -300,7 +300,7 @@ footer{text-align:center;color:var(--muted);font-size:8px;padding:18px 3px}
       writeStorage(trashStorageKey,trash);
       renderCustomItems();
     }catch(e){
-      window.alert('메뉴를 복구하지 못했습니다. 브라우저 저장 공간을 확인해 주세요.');
+      window.alert('메뉴를 복원하지 못했습니다. 브라우저 저장 공간을 확인해 주세요.');
     }
   }
   function permanentlyDeleteTrashItem(index){
@@ -369,7 +369,7 @@ footer{text-align:center;color:var(--muted);font-size:8px;padding:18px 3px}
       a.appendChild(ico);a.appendChild(txt);
       var actions=document.createElement('div');actions.className='trash-actions';
       var restore=document.createElement('button');restore.type='button';
-      restore.className='restore-item';restore.textContent='복구';
+      restore.className='restore-item';restore.textContent='복원';
       restore.addEventListener('click',function(){restoreTrashItem(index)});
       var permanent=document.createElement('button');permanent.type='button';
       permanent.className='permanent-delete';permanent.textContent='영구 삭제';
@@ -394,7 +394,7 @@ footer{text-align:center;color:var(--muted);font-size:8px;padding:18px 3px}
       localStorage.removeItem('market-insight-naver-default-permanently-deleted');
       trashSection.hidden=true;
       toggleTrash.setAttribute('aria-expanded','false');
-      toggleTrash.innerHTML='<span>♻️</span> 삭제한 메뉴 복구';
+      toggleTrash.innerHTML='<span>♻️</span> 삭제한 메뉴 복원';
       renderCustomItems();
       window.alert('맞춤 메뉴가 초기 상태로 복원되었습니다.');
     }catch(e){
@@ -405,7 +405,7 @@ footer{text-align:center;color:var(--muted);font-size:8px;padding:18px 3px}
     var opening=trashSection.hidden;
     trashSection.hidden=!opening;
     toggleTrash.setAttribute('aria-expanded',String(opening));
-    toggleTrash.innerHTML=opening?'<span>♻️</span> 복구 메뉴 닫기':'<span>♻️</span> 삭제한 메뉴 복구';
+    toggleTrash.innerHTML=opening?'<span>♻️</span> 복원 메뉴 닫기':'<span>♻️</span> 삭제한 메뉴 복원';
     if(opening)renderTrashItems();
   });
   function renderIconPicker(){
