@@ -40,6 +40,24 @@ a.link:focus-visible{outline:2px solid var(--green);outline-offset:2px}
 .trash-actions .restore-item{background:var(--accent);border-color:var(--accent);color:#fff}
 .trash-actions .permanent-delete{color:#d64b4b}
 .trash-meta{font-size:9px;color:var(--muted);margin-top:5px;letter-spacing:.1px}
+#resetCustomMenu{
+  margin-top:7px;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:12px;
+  background:transparent;
+  border:1px solid var(--line);
+  border-radius:12px;
+  color:var(--muted);
+  font:inherit;
+  font-size:11px;
+  font-weight:700;
+  cursor:pointer;
+}
+#resetCustomMenu:active{opacity:.65}
 #customTrash{margin-top:12px}
 #trashMenu{display:grid;gap:10px}
 #trashMenu .custom-item{
@@ -139,8 +157,8 @@ footer{text-align:center;color:var(--muted);font-size:8px;padding:18px 3px}
   <hr>
   <div class="group"><span class="ko">매크로 경제 분석</span> MACRO ANALYSIS</div>
   <nav class="list" aria-label="매크로 경제 분석 페이지">
-    <a class="link" href="https://sy-j11.github.io/fr/"><span class="ico">🏛️</span><span class="txt"><b>연방준비제도 모니터</b><small>FEDERAL RESERVE MONITER</small></span><span class="go">›</span></a>
-    <a class="link" href="https://sy-j11.github.io/f/"><span class="ico">🏦</span><span class="txt"><b>미국 경제지표 분석</b><small>US ECONOMIC INDICATORS ANALYSIS</small></span><span class="go">›</span></a>
+    <a class="link" href="https://sy-j11.github.io/fr/"><span class="ico">🏛️</span><span class="txt"><b>연방준비제도 인물 모니터</b><small>FEDERAL MONITER</small></span><span class="go">›</span></a>
+    <a class="link" href="https://sy-j11.github.io/f/"><span class="ico">📉</span><span class="txt"><b>미국 경제지표 분석</b><small>US ECONOMIC INDICATORS ANALYSIS</small></span><span class="go">›</span></a>
   </nav>
 
   <hr>
@@ -148,6 +166,7 @@ footer{text-align:center;color:var(--muted);font-size:8px;padding:18px 3px}
   <nav class="list" id="customMenu" aria-label="맞춤 메뉴"></nav>
   <button class="custom-add" id="addCustomMenu" type="button"><span>＋</span> 추가하기</button>
   <button class="custom-add" id="toggleTrash" type="button" aria-expanded="false"><span>♻️</span> 삭제한 메뉴 복구</button>
+  <button id="resetCustomMenu" type="button"><span>↺</span> 맞춤 메뉴 전체 초기화</button>
   <section id="customTrash" hidden aria-label="삭제한 메뉴 목록">
     <div class="group">삭제한 메뉴 <span id="trashCount"></span></div>
     <nav class="list" id="trashMenu"></nav>
@@ -366,6 +385,22 @@ footer{text-align:center;color:var(--muted);font-size:8px;padding:18px 3px}
       trashMenu.appendChild(empty);
     }
   }
+  document.getElementById('resetCustomMenu').addEventListener('click',function(){
+    var confirmed=window.confirm('맞춤 메뉴를 초기 상태로 복원할까요?\n\n추가한 메뉴와 삭제한 메뉴가 모두 초기화되고, 기본 메뉴인 네이버 Npay 증권만 남습니다. 이 작업은 되돌릴 수 없습니다.');
+    if(!confirmed)return;
+    try{
+      localStorage.removeItem(storageKey);
+      localStorage.removeItem(trashStorageKey);
+      localStorage.removeItem('market-insight-naver-default-permanently-deleted');
+      trashSection.hidden=true;
+      toggleTrash.setAttribute('aria-expanded','false');
+      toggleTrash.innerHTML='<span>♻️</span> 삭제한 메뉴 복구';
+      renderCustomItems();
+      window.alert('맞춤 메뉴가 초기 상태로 복원되었습니다.');
+    }catch(e){
+      window.alert('초기화하지 못했습니다. 브라우저 저장 공간 설정을 확인해 주세요.');
+    }
+  });
   toggleTrash.addEventListener('click',function(){
     var opening=trashSection.hidden;
     trashSection.hidden=!opening;
